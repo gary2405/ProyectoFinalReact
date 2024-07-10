@@ -41,6 +41,29 @@ function BasicExample() {
       </Card.Body>
     </Card>
 
+    <Card  id='cardHome'>
+      <Card.Img variant="top" src="img/icecream3.jpg" />
+      <Card.Body>
+        <Card.Title>
+          Helado de fresa
+        </Card.Title>
+        <Card.Text>
+        ₡800
+        </Card.Text>
+      
+      </Card.Body>
+    </Card>
+
+    <Card  id='cardHome'>
+      <Card.Img variant="top" src="img/icecream4.jpg" />
+      <Card.Body>
+        <Card.Title>Helado de chicle</Card.Title>
+        <Card.Text>
+        ₡800
+        </Card.Text>
+        
+      </Card.Body>
+    </Card>
 
     
     </div>

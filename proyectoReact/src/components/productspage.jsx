@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-
+import productosPost from '../services/productospost';
 import productosGET from '../services/productosget';
-
+import productosDelete from '../services/productosDelete';
+import productosPUT from '../services/productosput';
 import Card from 'react-bootstrap/Card';
-
-
+import swal from 'sweetalert2';
 const ProductsPage = () => {
   const [Helados, setHelados] = useState([]);
   const [nombre, setNombre] = useState('');
@@ -23,12 +23,58 @@ const ProductsPage = () => {
     };
     fetchHelados();
   }, []);
+  
 
 
+  const eliminarhelado = async (id) => {
+    try {
+      const confirmacion = await swal({
+        title: "¿Estás seguro?",
+        text: "No podrás revertir esto!",
+        icon: "warning",
+        buttons: {
+          cancel: {
+            text: "No, cancelar",
+            visible: true,
+            className: "btn btn-danger",
+            closeModal: true,
+          },
+          confirm: {
+            text: "Sí, eliminarlo!",
+            className: "btn btn-success",
+            closeModal: true,
+          },
+        },
+        dangerMode: true,
+      });
+      if (confirmacion) {
+        const eliminacionExitoso = await productosDelete(id);
+        if (eliminacionExitoso) {
+          const nuevaListaHelados = Helados.filter(helado => helado.id !== id);
+          setHelados(nuevaListaHelados);
+          swal("¡Eliminado!", "El producto ha sido eliminado.", "success");
+        } else {
+          swal("Error", "Hubo un problema al eliminar el producto.", "error");
+        }
+      } else {
+        swal("Cancelado", "Tu producto está seguro :)", "error");
+      }
+    } catch (error) {
+      console.error("Error al eliminar producto:", error);
+      swal("Error", "Hubo un problema al eliminar el producto.", "error");
+    }
+  };
+
+
+
+
+  
+
+  
   return (
     <div>
       <div className='formProductos'>
-   
+        <form >
           <label>Nombre:</label>
           <input
             value={nombre}
@@ -71,8 +117,8 @@ const ProductsPage = () => {
                     <Card.Text>
                       ${helado.precio} <br />{helado.ingredientes}
                     </Card.Text>
-                    <button >Editar</button>
-                    <button >Eliminar</button>
+                    <button onClick={() => iniciarEdicion(helado)}>Editar</button>
+                    <button onClick={() => eliminarhelado(helado.id)}>Eliminar</button>
                   </Card.Body>
                 </Card>
               </ul>

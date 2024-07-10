@@ -2,7 +2,8 @@
 function aboutUs() {
   return (
     <div>
-      
+        <img className="logo" src="img/11.png" alt="" />
+        <img className="imgabout" src="img/icecreamaboutus.jpg" alt="" />
         
       <p className="parrafoabout">En 222, estamos dedicados <br />
          a proporcionarte batidos que combinan <br />sabor y salud. Fundados en 
