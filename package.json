@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@sweetalert2/themes": "^5.0.17",
+    "react-sweetalert2": "^0.6.0"
+  }
+}

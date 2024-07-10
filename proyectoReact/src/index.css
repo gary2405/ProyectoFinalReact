@@ -1,68 +1,309 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+
+
+
+
+#cardsHome{
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+gap: 5px;
+background-color: #f1eded;
+border-radius: 10px;
+padding: 2%;
+text-align: center;
+font-family: 'Lattolatoo', sans-serif;
+font-style: normal;
+
+}
+
+
+
+.cardsimagenes{
+    align-self: center;
+    
+   
+}
+
+.logo{
+  margin-top: -71%;
+    width: 170px;
+    margin-left: 86%;
+    
+    
+}
+
+#imgheader{
+    height: 600px;
+    width: 1263px; 
+    
+    margin-top: -5%;
+}
+
+.wavewhite{
+    margin-top: -10%;
+}
+
+.topnav {
+    position: relative;
+    text-align: center;
+   
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+   
+    color: #bf858e;
+  }
+  
+ 
+  /* Centered section inside the top navigation */
+
+  .topnav-centered a {
+    float: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+   
+  }
+
+  .topnav-centered {
+    font-family: 'Lattolatoo', sans-serif;
+    margin-top: 5px;
+    font-weight: 400;
+    font-style: normal;
+    
+  }
+  
+  
+  
+  
+  
+
+  @import url('https://fonts.cdnfonts.com/css/enchanted-hermion-script');
+  
+ .maintext{
+    text-align: center;
+   margin-right: 62%;
+    margin-top: -47%;
+    font-family: 'Enchanted Hermion Script', sans-serif;
+    font-family: 'Enchanted Hermion Serif', sans-serif;
+ }
+
+ 
+ .maintext2{
+    font-style: oblique;
+    font-size: 16px;  
+    margin-left: 14%;                                         
+ }
+
+ 
+
+ @import url('https://fonts.cdnfonts.com/css/reverie');
+ .heladosdest{
+    margin-top: 40%;
+    font-family: 'NCL Mahqusep Copisela', sans-serif;
+                                            
+ }
+  
+
+#cardinfo{
+    width: 18rem ;
+    height: 25rem;
+    background-color: #a2cadf;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 7%;
+}
+
+#cardsinfo{
+    display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 6px;
+margin-left: 100px;
+margin-top: 25%;
+
+}
+
+.imgnav{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    transform: translate(24%, 10%);
+   
+}
+
+
+
+.titleheladosdestacados{
+    margin-top: 10%;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.imgcontact{
+    width: 100%;
+    height: 588px;
+    margin-top: -3%;
+   
+}
+
+.textcontact{
+    margin-top: -28%;
+    margin-left: 55%;
+    text-align: center;
+}
+
+
+/*css de texto helados destacados*/
+.con-animate {
+  position: relative;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.18);
+  margin-top: 28%;
+  height: 40px;
+  overflow:hidden
+
+}
+
+.animate1 {
+  font-family: "Silkscreen", sans-serif;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.animate1-bold {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
-body {
-  margin: 0;
+.animate2 {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.animate2-bold {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.con-animate > div {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100%;
+  background: rgb(255, 255, 255);
+
+}
+.con-animate > div p {
+  width: 100%;
+}
+.con-animate > .animate1 {
+  position: absolute;
+  left: 0px;
+  animation: animate1 linear 10s infinite;
+  transform: translate(0);
+}
+.con-animate > .animate2 {
+  position: absolute;
+  left: 0px;
+  animation: animate2 linear 10s infinite;
+  transform: translate(0);
+}
+@keyframes animate1 {
+from {transform:translate(0%)}
+to {transform:translate(-100%)}
+}
+@keyframes animate2 {
+from {transform:translate(100%)}
+to {transform:translate(0%)}
+}
+  
+
+
+  .cardproductos{
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(5, 1fr);
+    width: 13rem;
+    height: 20rem
+  
+  }
+
+  .cardscolumns{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .heladocardhome{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .waveform{
+    margin-top: -8%;
+  }
+
+ .waveformdown{
+  margin-top: 5%;
+  margin-top: 7.5%;
+ }
+
+
+
+.tamanourl{
+  width: 100px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+
+
+
+.info{
+  text-align: center;
+  margin-top: -500px;
+  font-size: small;
+  margin-left: -72%;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.icecreammelting{
+  width: 100%;
+  margin-top: -20%;
+  height: 520px;
+  margin-left: -2%;
+  filter: brightness(1.1);
+   mix-blend-mode: multiply;
+  
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.blob1{
+  width: 480px;
+  margin-left: 3%;
+  filter: brightness(1.1);
+  mix-blend-mode: multiply;
+  margin-top: 4%;
+  opacity: calc(70%);
+    
 }
+
+.blob2{
+  width: 380px;
+  margin-left: 28%;
+  filter: brightness(1.1);
+    mix-blend-mode: multiply;
+    margin-top: 10%;
+   
+   
+}
+

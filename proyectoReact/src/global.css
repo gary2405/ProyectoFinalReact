@@ -1,0 +1,119 @@
+@import url('https://fonts.cdnfonts.com/css/funkie-retro');
+.maintext {
+  font-family: 'Funkie Retro', sans-serif;
+  letter-spacing: 2px;  
+  /*color: #bf858e;*/   
+  color: #bf858e; 
+  font-size: 70px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0);
+}
+
+
+
+.login{
+  text-align: center;
+  margin-top: -30%;
+  width: 100%;
+  
+}
+
+.register{
+  text-align: center;
+  margin-top: -30%;
+  width: 100%;
+}
+
+.iniciarsesion{
+  margin-top: -3%;
+  font-size: 18px;
+}
+
+.imglogin{
+  width: 100%;
+  height: 588px;
+  margin-top: -3%;
+
+}
+
+.imgregister{
+   width: 100%;
+  height: 588px;
+  margin-top: -3%;
+}
+
+
+
+.input{
+  border-radius: 7px;
+  border: 1px solid;
+  height: 35px;
+  width: 220px;
+  background-color: rgba(248, 232, 242, 0);
+  margin-top: 3px;
+}
+
+
+.btnlog {
+  background-color: #a56982;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin-top: 2px;
+}
+
+.btnlog > a{
+text-decoration: none;
+color: white;
+}
+
+.inputregister{
+  border-radius: 7px;
+  border: 1px solid;
+  height: 35px;
+  width: 220px;
+  background-color: rgba(248, 232, 242, 0);
+  margin-top: 3px;
+}
+
+.buttonregister{
+  background-color: #a56982;
+  border: none;
+  border-radius: 5px;
+
+  margin-top: 2px;
+}
+.buttonregister > a{
+  text-decoration: none;
+  color: white;
+}
+
+.imgabout{
+  width: 100%;
+  height: 654px;
+  margin-top: -10%;
+ 
+}
+
+
+
+
+
+.parrafoabout{
+  text-align: center;
+  font-style: oblique;
+  margin-top: -34%;
+  margin-left: -40%;
+  font-size: large;
+  color: white;
+}
+
+
+.buttonlista{
+  background-color: rgb(118, 139, 177);
+  border: none;
+  
+}
+.buttonlista:hover{
+  background-color: black;
+}
