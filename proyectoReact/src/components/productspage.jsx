@@ -11,7 +11,7 @@ const ProductsPage = () => {
   const [precio, setPrecio] = useState('');
   const [ingredientes, setIngredientes] = useState('');
   const [imgurl, setImgUrl] = useState('');
-
+  const [productoEdit, setProductoEdit] = useState(null);
   useEffect(() => {
     const fetchHelados = async () => {
       try {
@@ -23,7 +23,31 @@ const ProductsPage = () => {
     };
     fetchHelados();
   }, []);
-  
+  const manejarSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (productoEdit !== null) {
+        const actualizadoProducto = await productosPUT(productoEdit.id, nombre, precio, ingredientes, imgurl);
+        if (actualizadoProducto) {
+          const nuevaListaHelados = Helados.map(b => (b.id === productoEdit.id ? actualizadoProducto : b));
+          setHelados(nuevaListaHelados);
+          setProductoEdit(null);
+        }
+      } else {
+        const nuevoProducto = await productosPost(nombre, precio, ingredientes, imgurl);
+        if (nuevoProducto) {
+          setHelados([Helados, nuevoProducto]);
+        }
+      }
+      setNombre('');
+      setPrecio('');
+      setIngredientes('');
+      setImgUrl('');
+    } catch (error) {
+      console.error("Error al manejar el submit:", error);
+    }
+  };
+
 
 
   const eliminarhelado = async (id) => {
@@ -68,13 +92,18 @@ const ProductsPage = () => {
 
 
 
-  
-
+  const iniciarEdicion = (producto) => {
+    setProductoEdit(producto);
+    setNombre(producto.nombre);
+    setPrecio(producto.precio);
+    setIngredientes(producto.ingredientes);
+    setImgUrl(producto.imgurl);
+  };
   
   return (
     <div>
       <div className='formProductos'>
-        <form >
+        <form onSubmit={manejarSubmit}>
           <label>Nombre:</label>
           <input
             value={nombre}
