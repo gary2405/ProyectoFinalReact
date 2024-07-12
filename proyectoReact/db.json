@@ -13,11 +13,11 @@
   ],
   "productos": [
     {
-      "id": "a219",
       "nombre": "frresa",
       "precio": "1000",
       "ingredientes": "fresa",
-      "imgurl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvWV2Y-uxEOtnsxa0ob5XzLCq387T4uHuBzg&usqp=CAU"
+      "imgurl": "https://static01.nyt.com/images/2015/08/05/multimedia/recipe-lab-ice-cream/recipe-lab-ice-cream-articleLarge.jpg?width=1280&quality=75&auto=webp",
+      "id": "a219"
     },
     {
       "nombre": "coco",

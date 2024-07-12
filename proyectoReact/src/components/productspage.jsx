@@ -106,7 +106,7 @@ return (
                 <Card.Img variant="top" src={helado.imgurl} alt={helado.nombre} />
                 <Card.Body>
                   <Card.Title>{helado.nombre}</Card.Title>
-                  <Card.Text>{helado.precio} <br />{helado.ingredientes}</Card.Text>
+                  <Card.Text>₡{helado.precio} <br />{helado.ingredientes}</Card.Text>
                   <button onClick={() => iniciarEdicion(helado)}>Editar</button>
                   <button onClick={() => eliminarHelado(helado.id)}>Eliminar</button>
                 </Card.Body>
