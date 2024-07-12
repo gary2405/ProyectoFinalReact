@@ -1,15 +1,19 @@
 {
-  "users": [
-    
-  ],
+  "users": [],
   "productos": [
     {
-      "nombre": "frresa",
-      "precio": "1000",
-      "ingredientes": "fresa",
-      "imgurl": "https://static01.nyt.com/images/2015/08/05/multimedia/recipe-lab-ice-cream/recipe-lab-ice-cream-articleLarge.jpg?width=1280&quality=75&auto=webp",
-      "id": "a219"
+      "id": "b1f4",
+      "nombre": "d",
+      "precio": "43",
+      "ingredientes": "df",
+      "imgurl": "https://cdnimg.webstaurantstore.com/images/products/large/7856/1915128.jpg"
+    },
+    {
+      "id": "d7bb",
+      "nombre": "fs",
+      "precio": "3",
+      "ingredientes": "c",
+      "imgurl": "https://cdnimg.webstaurantstore.com/images/products/large/14415/1913853.jpg"
     }
-    
   ]
 }

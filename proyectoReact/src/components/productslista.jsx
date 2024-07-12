@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import productosGET from '../services/productosget';
-import { Link } from 'react-router-dom';
+
 const Productslista = () => {
   //estad para almacenar la lista de helados
   const [helados, setHelados] = useState([]);
@@ -38,7 +38,7 @@ const Productslista = () => {
           ))
         )}
       </div>
-      <button><Link to='/products'>Volver</Link></button>
+      
     </div>
   );
 };

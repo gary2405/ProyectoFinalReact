@@ -119,10 +119,21 @@ color: white;
 
   position: absolute;
   top: 290%;
-  left: 38%;
- 
+  left: 39%;
+ font-size: 20px;
   
 }
 .buttonlista:hover{
   background-color: black;
+}
+
+
+.footer {
+  background-color: #7e7e7e;
+  color: #fff;
+  margin-top: 17%;
+  text-align: center;
+  padding: 3rem 0;
+  bottom: 0;
+  width: 100%;
 }

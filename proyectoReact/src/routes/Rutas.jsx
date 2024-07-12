@@ -21,6 +21,7 @@ function Rutas() {
                      <Route path='/contactus' element={<Contact/>}   />
                      <Route path='/products' element={<Productspage/>}   />
                      <Route path='/productslista' element={<Productslista/>}   />
+                     
             </Routes>
         </Router>
       

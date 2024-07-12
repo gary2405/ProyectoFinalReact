@@ -1,5 +1,6 @@
 import Rutas from './routes/Rutas'
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
      
        <Rutas />
        
+       <Footer/>
       </div>
     
     </>

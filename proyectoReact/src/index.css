@@ -317,7 +317,20 @@ to {transform:translate(0%)}
 }
 
 .formProductos{
-  background-color: #a2cadf;
-  padding: 8%;
-  margin-top: -3%;
+  background-color: #b6d6e7;
+  padding-top: 10%;
+  margin-top: -5%;
+  padding-bottom: 12%;
+  font-family: 'Lattolatoo', sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+
+}
+
+.buttoncard{
+  background-color: #acacac;
+  border: none;
+  border-radius: 4px;
+  margin-left: 2%;
+  text-align: center;
 }
