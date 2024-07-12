@@ -1,5 +1,5 @@
 import {useState } from "react"
-import { Link } from "react-router-dom"
+
 import userPost from "../services/post"
 
 function Registroform() {
@@ -22,16 +22,16 @@ const mostrar = async ()=>{
 
   return (
     <div>
-        <img className="imgregister" src="img/ppp.jpg" alt="" />
+        <img className="imgregister" src="img/imgloginregister.jpg" alt="" />
     <div className="register">
         <h2 className="iniciarsesion">Registrarse</h2>
        
-        <input className="inputregister" type="text" value={usuario} onChange={e => setUsuario(e.target.value)}/>
+        <input className="inputregister" placeholder="Usuario" type="text" value={usuario} onChange={e => setUsuario(e.target.value)}/>
         <br />
      
-        <input className="inputregister" type="text" value={contraseña} onChange={e => setContraseña(e.target.value)}/>
+        <input className="inputregister" placeholder="Contraseña" type="text" value={contraseña} onChange={e => setContraseña(e.target.value)}/>
         <br />
-        <button className="buttonregister" onClick={mostrar}><Link to='/login'>Registar usuario</Link></button>
+        <button className="buttonregister" onClick={mostrar}>Registar usuario</button>
         
     </div>
     </div>

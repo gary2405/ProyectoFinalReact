@@ -14,7 +14,8 @@
 .login{
   text-align: center;
   margin-top: -30%;
-  width: 100%;
+ 
+  
   
 }
 
@@ -33,7 +34,7 @@
   width: 100%;
   height: 588px;
   margin-top: -3%;
-
+  
 }
 
 .imgregister{
@@ -51,6 +52,7 @@
   width: 220px;
   background-color: rgba(248, 232, 242, 0);
   margin-top: 3px;
+  
 }
 
 

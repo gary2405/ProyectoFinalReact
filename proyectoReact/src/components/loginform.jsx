@@ -25,10 +25,7 @@ function Loginform() {
             const encontrarUser = comparar.find((e) => e.name == usuario && e.email === Contrasena);
            
             if (encontrarUser) {
-                setSwalProps({
-                    show: true,
-                    title: 'Usuario encontrado',
-                });
+               alert("Usuario encontrado")
                 navigate("/home")
                 
                 console.log("true");
@@ -50,7 +47,7 @@ function Loginform() {
   return (
     <div>
 
-<img className="imglogin" src="img/ppp.jpg" alt="img" />
+<img className="imglogin" src="img/imgloginregister.jpg" alt="img" />
 
       
     <div className="login">

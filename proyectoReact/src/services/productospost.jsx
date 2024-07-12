@@ -1,4 +1,4 @@
-const productosPost = async (nombre, precio, ingredientes, url) => { 
+const productosPost = async (nombre, precio, ingredientes, imgurl) => { 
     try {
         const response = await fetch('http://localhost:3002/productos', {
         method: 'POST',
@@ -9,7 +9,7 @@ const productosPost = async (nombre, precio, ingredientes, url) => {
             nombre: nombre,
             precio: precio,
             ingredientes: ingredientes,
-            url: url
+            imgurl: imgurl
             })
         });
         const data = await response.json();

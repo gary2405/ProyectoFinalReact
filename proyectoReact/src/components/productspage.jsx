@@ -1,161 +1,126 @@
 import { useState, useEffect } from 'react';
+// Importamos los servicios para operaciones CRUD
 import productosPost from '../services/productospost';
 import productosGET from '../services/productosget';
 import productosDelete from '../services/productosDelete';
 import productosPUT from '../services/productosput';
+// Importamos el componente Card de React Bootstrap para mostrar los productos
 import Card from 'react-bootstrap/Card';
-import swal from 'sweetalert2';
+
+// Definimos el componente ProductsPage
 const ProductsPage = () => {
-  const [Helados, setHelados] = useState([]);
+  // Estado para almacenar la lista de helados
+  const [helados, setHelados] = useState([]);
+  // Estados para los campos del formulario
   const [nombre, setNombre] = useState('');
   const [precio, setPrecio] = useState('');
   const [ingredientes, setIngredientes] = useState('');
   const [imgurl, setImgUrl] = useState('');
+  // Estado para el producto que se está editando
   const [productoEdit, setProductoEdit] = useState(null);
+  // useEffect se ejecuta una vez al montar el componente para obtener la lista de helados
   useEffect(() => {
     const fetchHelados = async () => {
-      try {
-        const data = await productosGET();
-        setHelados(data);
-      } catch (error) {
-        console.error("Error al obtener productos:", error);
-      }
+      const data = await productosGET(); // Llama al servicio para obtener productos
+      setHelados(data); // Actualiza el estado con la lista de helados obtenida
     };
-    fetchHelados();
-  }, []);
+    fetchHelados(); // Ejecuta la función para obtener productos
+  }, []); // El array vacío significa que esto se ejecuta solo una vez al montar el componente
+  // Función para manejar el envío del formulario
   const manejarSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      if (productoEdit !== null) {
-        const actualizadoProducto = await productosPUT(productoEdit.id, nombre, precio, ingredientes, imgurl);
-        if (actualizadoProducto) {
-          const nuevaListaHelados = Helados.map(b => (b.id === productoEdit.id ? actualizadoProducto : b));
-          setHelados(nuevaListaHelados);
-          setProductoEdit(null);
-        }
-      } else {
-        const nuevoProducto = await productosPost(nombre, precio, ingredientes, imgurl);
-        if (nuevoProducto) {
-          setHelados([Helados, nuevoProducto]);
-        }
+    e.preventDefault(); // Previene el comportamiento predeterminado del formulario
+    // Si hay un producto en edición, se actualiza
+    if (productoEdit) {
+      const actualizadoProducto = await productosPUT(
+        productoEdit.id,
+        nombre,
+        precio,
+        ingredientes,
+        imgurl
+      );
+      // Si la actualización es exitosa, actualiza la lista de helados
+      if (actualizadoProducto) {
+        setHelados(helados.map(h => (h.id === productoEdit.id ? actualizadoProducto : h))); //operador ternario
+        setProductoEdit(null); // Limpia el estado del producto en edición
       }
-      setNombre('');
-      setPrecio('');
-      setIngredientes('');
-      setImgUrl('');
-    } catch (error) {
-      console.error("Error al manejar el submit:", error);
+    } else {
+      // Si no hay un producto en edición, se crea un nuevo producto
+      const nuevoProducto = await productosPost(
+        nombre,
+        precio,
+        ingredientes,
+        imgurl
+      );
+      // Si la creación es exitosa, agrega el nuevo producto a la lista de helados
+      if (nuevoProducto) setHelados([...helados, nuevoProducto]);
+    }
+    // Limpia los campos del formulario
+    setNombre('');
+    setPrecio('');
+    setIngredientes('');
+    setImgUrl('');
+  };
+  // Función para eliminar un helado por su ID
+  const eliminarHelado = async (id) => { 
+    if (await productosDelete(id)) {
+      // Si la eliminación es exitosa, actualiza la lista de helados
+      setHelados(helados.filter(helado => helado.id !== id));
     }
   };
-
-
-
-  const eliminarhelado = async (id) => {
-    try {
-      const confirmacion = await swal({
-        title: "¿Estás seguro?",
-        text: "No podrás revertir esto!",
-        icon: "warning",
-        buttons: {
-          cancel: {
-            text: "No, cancelar",
-            visible: true,
-            className: "btn btn-danger",
-            closeModal: true,
-          },
-          confirm: {
-            text: "Sí, eliminarlo!",
-            className: "btn btn-success",
-            closeModal: true,
-          },
-        },
-        dangerMode: true,
-      });
-      if (confirmacion) {
-        const eliminacionExitoso = await productosDelete(id);
-        if (eliminacionExitoso) {
-          const nuevaListaHelados = Helados.filter(helado => helado.id !== id);
-          setHelados(nuevaListaHelados);
-          swal("¡Eliminado!", "El producto ha sido eliminado.", "success");
-        } else {
-          swal("Error", "Hubo un problema al eliminar el producto.", "error");
-        }
-      } else {
-        swal("Cancelado", "Tu producto está seguro :)", "error");
-      }
-    } catch (error) {
-      console.error("Error al eliminar producto:", error);
-      swal("Error", "Hubo un problema al eliminar el producto.", "error");
-    }
-  };
-
-
-
-
-  const iniciarEdicion = (producto) => {
-    setProductoEdit(producto);
-    setNombre(producto.nombre);
-    setPrecio(producto.precio);
-    setIngredientes(producto.ingredientes);
-    setImgUrl(producto.imgurl);
-  };
+const iniciarEdicion = (producto) => {
+  setProductoEdit(producto); // Establece el estado del producto en edición
+  // Llena el formulario con los datos del producto a editar
+  setNombre(producto.nombre);
+  setPrecio(producto.precio);
+  setIngredientes(producto.ingredientes);
+  // Actualiza imgurl solo para el producto editado
+  setImgUrl(producto.imgurl);
+};
+// Renderizado del componente
+return (
   
-  return (
-    <div>
-      <div className='formProductos'>
-        <form onSubmit={manejarSubmit}>
-          <label>Nombre:</label>
-          <input
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            required
-          />
-          <label>Precio:</label>
-          <input
-            type="number"
-            value={precio}
-            onChange={(e) => setPrecio(e.target.value)}
-            required
-          />
-          <label>Ingredientes:</label>
-          <input
-            value={ingredientes}
-            onChange={(e) => setIngredientes(e.target.value)}
-            required
-          />
-          <label>URL:</label>
-          <input
-            value={imgurl}
-            onChange={(e) => setImgUrl(e.target.value)}
-            required
-          />
-          <button type="submit">
-            {productoEdit !== null ? 'Guardar Cambios' : 'Agregar'}
-          </button>
-        </form>
-        <div className='cardscolumns'>
-          {Helados.length === 0 ? (
-            <p>No hay productos disponibles</p>
-          ) : (
-            Helados.map(helado => (
-              <ul key={helado.id}>
-                <br />
-                <Card className='cardproductos'>
-                  <Card.Body>
-                    <Card.Title>{helado.nombre}</Card.Title>
-                    <Card.Text>
-                      ${helado.precio} <br />{helado.ingredientes}
-                    </Card.Text>
-                    <button onClick={() => iniciarEdicion(helado)}>Editar</button>
-                    <button onClick={() => eliminarhelado(helado.id)}>Eliminar</button>
-                  </Card.Body>
-                </Card>
-              </ul>
-            ))
-          )}
-        </div>
+  <div>
+    
+    <div className='formProductos'>
+      {/* Formulario para agregar o editar helados */}
+      <form onSubmit={manejarSubmit}>
+        <label>Nombre:</label>
+        <input value={nombre} onChange={(e) => setNombre(e.target.value)} required />
+        <label>Precio:</label>
+        <input type="number" value={precio} onChange={(e) => setPrecio(e.target.value)} required />
+        <label>Ingredientes:</label>
+        <input value={ingredientes} onChange={(e) => setIngredientes(e.target.value)} required />
+        <label>URL:</label>
+        <input value={imgurl} onChange={(e) => setImgUrl(e.target.value)} required />
+        <button type="submit">{productoEdit ? 'Guardar Cambios' : 'Agregar'}</button>
+      </form>
+      <br />
+    
+      <div className='cardscolumns'>
+        {helados.length === 0 ? (
+          <p>No hay productos disponibles</p>
+        ) : (
+          helados.map(helado => (
+            <ul key={helado.id}>
+              <Card className='cardproductos'>
+                <Card.Img variant="top" src={helado.imgurl} alt={helado.nombre} />
+                <Card.Body>
+                  <Card.Title>{helado.nombre}</Card.Title>
+                  <Card.Text>{helado.precio} <br />{helado.ingredientes}</Card.Text>
+                  <button onClick={() => iniciarEdicion(helado)}>Editar</button>
+                  <button onClick={() => eliminarHelado(helado.id)}>Eliminar</button>
+                </Card.Body>
+              </Card>
+            </ul>
+          ))
+        )}
+        
       </div>
+  
     </div>
-  );
+
+  </div>
+  
+);
 };
 export default ProductsPage;
