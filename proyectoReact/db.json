@@ -1,15 +1,6 @@
 {
   "users": [
-    {
-      "id": "f357",
-      "name": "vic",
-      "email": "1"
-    },
-    {
-      "id": "57eb",
-      "name": "VIC",
-      "email": "1"
-    }
+    
   ],
   "productos": [
     {
@@ -18,20 +9,7 @@
       "ingredientes": "fresa",
       "imgurl": "https://static01.nyt.com/images/2015/08/05/multimedia/recipe-lab-ice-cream/recipe-lab-ice-cream-articleLarge.jpg?width=1280&quality=75&auto=webp",
       "id": "a219"
-    },
-    {
-      "nombre": "coco",
-      "precio": "2367",
-      "ingredientes": "DSJFB",
-      "imgurl": "https://static01.nyt.com/images/2015/08/05/multimedia/recipe-lab-ice-cream/recipe-lab-ice-cream-articleLarge.jpg?width=1280&quality=75&auto=webp",
-      "id": "3ab9"
-    },
-    {
-      "id": "773d",
-      "nombre": "fresa",
-      "precio": "34676",
-      "ingredientes": "gdvas",
-      "imgurl": "https://static01.nyt.com/images/2015/08/05/multimedia/recipe-lab-ice-cream/recipe-lab-ice-cream-articleLarge.jpg?width=1280&quality=75&auto=webp"
     }
+    
   ]
 }

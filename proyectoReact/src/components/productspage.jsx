@@ -14,7 +14,6 @@ const ProductsPage = () => {
   const [precio, setPrecio] = useState('');
   const [ingredientes, setIngredientes] = useState('');
   const [imgurl, setImgUrl] = useState('');
-  //estado para el producto que se está editando
   const [productoEdit, setProductoEdit] = useState(null);
   // el useEffect solo se usa una vez al montar el componente para obtener la lista de helados
   useEffect(() => {

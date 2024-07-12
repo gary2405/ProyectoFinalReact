@@ -3,7 +3,6 @@ import BasicExample from "../components/cards"
 import Infogeneral from "../components/infogeneral"
 import Header from "../components/header"
 
-
 import Modalproductos from '../components/modalproductos'
 
 function Homepage() {

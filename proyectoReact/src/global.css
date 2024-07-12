@@ -114,6 +114,13 @@ color: white;
 .buttonlista{
   background-color: rgb(118, 139, 177);
   border: none;
+  width: 270px;
+  height: 50px;
+
+  position: absolute;
+  top: 290%;
+  left: 38%;
+ 
   
 }
 .buttonlista:hover{

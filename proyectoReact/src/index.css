@@ -315,3 +315,9 @@ to {transform:translate(0%)}
   height: 588px;
   margin-top: -38%;
 }
+
+.formProductos{
+  background-color: #a2cadf;
+  padding: 8%;
+  margin-top: -3%;
+}
