@@ -3,23 +3,23 @@ import Card from 'react-bootstrap/Card';
 import productosGET from '../services/productosget';
 import { Link } from 'react-router-dom';
 const Productslista = () => {
-  // Estado para almacenar la lista de helados
+  //estad para almacenar la lista de helados
   const [helados, setHelados] = useState([]);
-  // useEffect se ejecuta una vez al montar el componente para obtener la lista de helados
+
   useEffect(() => {
     const fetchHelados = async () => {
-      const data = await productosGET(); // Llama al servicio para obtener productos
-      setHelados(data); // Actualiza el estado con la lista de helados obtenida
+      const data = await productosGET(); //llama a get para obtener productos
+      setHelados(data); //actualiza el estado con la lista de helados obt
       console.log(data);
       
     };
-    fetchHelados(); // Ejecuta la función para obtener productos
-  }, []); // El array vacío significa que esto se ejecuta solo una vez al montar el componente
-  // Renderizado del componente
+    fetchHelados(); //hace la función para obtener productos
+  }, []); //este array vacío significa que esto se hara solo una vez al montar el componente
+
   return (
     <div>
       <div className='cardscolumns'>
-        {/* Muestra los productos en una lista de cards */}
+      
         {helados.length === 0 ? (
           <p>No hay productos disponibles</p>
         ) : (
